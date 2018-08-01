@@ -1,0 +1,82 @@
+============
+non terminal
+============
+
+// generic control statement
+condition statement
+block statement
+
+// branching
+if
+alternative
+
+// loop control
+loop
+ascent
+descent
+while
+
+// task
+task declaration
+task call
+
+// function
+function declaration
+function call
+
+// variable
+variable declaration
+variable assignment
+
+// header
+header
+header with keyword value
+header with numeric value
+header with string value
+
+// drivers
+main
+body
+
+event
+
+// token grouping
+value
+
+
+--------------------------------------
+
+========
+terminal
+========
+
+punctuation
+operator
+keyword
+identifier
+literal
+command character
+whitespace
+comment
+
+--------------------------------------
+
+==========
+production
+==========
+
+statement -> task call + statement | function call + statement | variable declaration + statement | variable assignment + statement
+body -> function declaration + body | task declaration + body | variable declaration + body
+main -> header + main | event + main | function declaration + main | task declaration + main | variable declaration + main
+value -> keyword | literal | identifier
+condition -> value + comparator operator + value
+header with keyword value -> "#" + header keyword + "[" + header keyword value + "]"
+header with numeric value -> "#" + header numeric + "[" + number + "]"
+header with string value -> "#" + header string + "[" + string + "]"
+header -> header with keyword value | header with numeric value | header with string value
+
+block statement -> "{" + ...? + "}"
+
+if -> "if" + "(" + condition statement + ")" + block statement
+
+while -> "while" + "(" + condition statement + ")" + block statement
